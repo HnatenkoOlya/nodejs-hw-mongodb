@@ -1,11 +1,11 @@
-import express from 'express';
+import {Router} from 'express';
 import { getContacts, getContactByIdController, createContactController, patchContactController, deleteContactController } from '../controllers/contactsController.js';
 import {ctrlWrapper} from '../utils/ctrlWrapper.js';
 import {createContactSchema, updateContactSchema} from '../validation/contacts.js';
 import {validateBody} from '../middlewares/validateBody.js';
 import {isValidId} from '../middlewares/isValidId.js';
  
-const router = express.Router();
+const router = Router();
 
 router.get('/', ctrlWrapper(getContacts)); 
 
