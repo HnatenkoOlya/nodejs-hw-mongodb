@@ -7,6 +7,7 @@ import { getEnvVar} from './utils/getEnvVar.js';
 import {errorHandler} from './middlewares/errorHandler.js';
 import {notFoundHandler} from './middlewares/notFoundHandler.js';
 import {UPLOAD_DIR} from './constants/index.js';
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 export const startServer = () => {
   const app = express();
@@ -31,6 +32,8 @@ app.use(
     },
   }),
 );
+app.use('/uploads', express.static(UPLOAD_DIR));
+app.use('/api-docs', swaggerDocs());
 
 app.get('/test', (req, res) => {
   res.json({ message: 'Test route works!' });
@@ -51,6 +54,8 @@ app.use(errorHandler);
 });*/
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+console.log(`✅ Server is running at: http://localhost:${PORT}`);
+console.log(`📘 Swagger docs available at: http://localhost:${PORT}/api-docs`);
 });
 }
+setupServer();
