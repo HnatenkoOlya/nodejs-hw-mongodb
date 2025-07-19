@@ -19,6 +19,10 @@ requestBody:
             description: "Contact's name"
             type: string
             example: 'John Doe'
+          email:
+            description: "Contact's email"
+            type: string
+            example: 'johndoe@example.com'
           phoneNumber:
             description: "Contact's phone number"
             type: string
@@ -27,6 +31,14 @@ requestBody:
             description: "Contact's type"
             type: string
             enum: ["work", "home", "personal"]
+          isFavourite:
+            description: 'Contact is favorite or not'
+            type: boolean
+            example: false
+          photo:
+            description: 'Optional contact photo file (image)'
+            type: string
+            format: binary
 responses:
   '201':
     description: Creates a contact

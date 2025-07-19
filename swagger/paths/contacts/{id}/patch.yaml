@@ -13,19 +13,20 @@ parameters:
       type: string
     description: The contact ID
 requestBody:
+  required: false
   content:
     multipart/form-data:
       schema:
         type: object
-        required:
-          - name
-          - photo
-          - userId
         properties:
           name:
             description: "Contact's name"
             type: string
             example: 'John Doe'
+          email:
+            description: "Contact's email"
+            type: string
+            example: 'johndoe@example.com'
           phoneNumber:
             description: "Contact's phone number"
             type: string
@@ -34,6 +35,10 @@ requestBody:
             description: "Contact type: work/home/personal"
             type: string
             enum: [work, home, personal]
+          isFavourite:
+            description: 'Contact is favorite or not'
+            type: boolean
+            example: true
           photo:
             description: "New photo file for the contact"
             type: string
