@@ -31,6 +31,7 @@ requestBody:
             description: "Contact's type"
             type: string
             enum: ["work", "home", "personal"]
+            example: 'work'
           isFavourite:
             description: 'Contact is favorite or not'
             type: boolean
