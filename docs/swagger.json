@@ -219,6 +219,11 @@
                     "type": "string",
                     "example": "John Doe"
                   },
+                  "email": {
+                    "description": "Contact's email",
+                    "type": "string",
+                    "example": "johndoe@example.com"
+                  },
                   "phoneNumber": {
                     "description": "Contact's phone number",
                     "type": "string",
@@ -231,7 +236,18 @@
                       "work",
                       "home",
                       "personal"
-                    ]
+                    ],
+                    "example": "work"
+                  },
+                  "isFavourite": {
+                    "description": "Contact is favorite or not",
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "photo": {
+                    "description": "Optional contact photo file (image)",
+                    "type": "string",
+                    "format": "binary"
                   }
                 }
               }
@@ -360,20 +376,21 @@
           }
         ],
         "requestBody": {
+          "required": false,
           "content": {
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "photo",
-                  "userId"
-                ],
                 "properties": {
                   "name": {
                     "description": "Contact's name",
                     "type": "string",
                     "example": "John Doe"
+                  },
+                  "email": {
+                    "description": "Contact's email",
+                    "type": "string",
+                    "example": "johndoe@example.com"
                   },
                   "phoneNumber": {
                     "description": "Contact's phone number",
@@ -388,6 +405,11 @@
                       "home",
                       "personal"
                     ]
+                  },
+                  "isFavourite": {
+                    "description": "Contact is favorite or not",
+                    "type": "boolean",
+                    "example": true
                   },
                   "photo": {
                     "description": "New photo file for the contact",
